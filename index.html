@@ -103,6 +103,31 @@
     </div>
   </section>
 
+  <!-- CÓDIGO ORIGINAL -->
+  <section class="code-section" id="codigo">
+    <div class="container">
+      <div class="code-header">
+        <div>
+          <span class="tag tag-light">El código original</span>
+          <h2>Escrito en Python</h2>
+          <p class="code-desc">
+            Este juego nació como un ejercicio en Python puro — sin frameworks, sin librerías.
+            Solo lógica, variables y un bucle <code>while</code>.
+          </p>
+        </div>
+      </div>
+      <div class="code-block">
+        <div class="code-topbar">
+          <span class="dot-red"></span>
+          <span class="dot-yellow"></span>
+          <span class="dot-green"></span>
+          <span class="code-filename">numero_secreto.py</span>
+        </div>
+        <pre><code id="python-code"></code></pre>
+      </div>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer>
     <div class="container">
@@ -110,11 +135,44 @@
         Hecho con
         <span aria-label="amor">♥</span>
         en Python primero, ahora en la web —
-        <a href="https://github.com/rodrigoo89/numero-secreto" target="_blank" rel="noopener">ver en GitHub</a>
+        <a href="https://github.com/" target="_blank" rel="noopener">ver en GitHub</a>
       </p>
     </div>
   </footer>
 
   <script src="script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    const pythonCode = `from random import *
+
+usuario = input("Ingrese su nombre: ")
+print(f"Hola, {usuario}! Tendrás que adivinar un número entre 1 y 100. Tienes 8 intentos.")
+
+numero_secreto = randint(1, 100)
+intentos = 8
+
+while intentos > 0:
+    ingreso_numero = int(input(f"Te quedan {intentos} intentos. Ingresa un número: "))
+
+    if ingreso_numero < 1 or ingreso_numero > 100:
+        print("Por favor, ingresa un número entre 1 y 100.")
+    elif ingreso_numero == numero_secreto:
+        print(f"¡Felicidades, {usuario}! Has adivinado el número secreto en {9 - intentos} intentos.")
+        break
+    elif ingreso_numero < numero_secreto:
+        print("Tu respuesta es incorrecta. Has elegido un número menor al número secreto.")
+    else:
+        print("Tu respuesta es incorrecta. Has elegido un número mayor al número secreto.")
+
+    intentos -= 1
+
+if intentos == 0:
+    print(f"Lo siento, {usuario}. Has agotado tus intentos. El número secreto era {numero_secreto}.")`;
+
+    const el = document.getElementById('python-code');
+    el.textContent = pythonCode;
+    hljs.highlightElement(el);
+  </script>
 </body>
 </html>
