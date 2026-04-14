@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Número Secreto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-number" aria-hidden="true">?</div>
+    <div class="hero-content">
+      <span class="tag">Mini juego</span>
+      <h1>Número<br /><em>Secreto</em></h1>
+      <p class="hero-desc">
+        Tenés 8 intentos para adivinar un número entre 1 y 100.<br />
+        Cada error te acerca un poco más a la respuesta.
+      </p>
+      <a href="#juego" class="btn-primary">Jugar ahora</a>
+    </div>
+  </section>
+
+  <!-- REGLAS -->
+  <section class="rules" id="reglas">
+    <div class="container">
+      <h2>¿Cómo se juega?</h2>
+      <div class="rules-grid">
+        <div class="rule-card">
+          <span class="rule-num">01</span>
+          <h3>Ingresá tu nombre</h3>
+          <p>El juego te saluda y genera un número secreto aleatorio del 1 al 100.</p>
+        </div>
+        <div class="rule-card">
+          <span class="rule-num">02</span>
+          <h3>Hacé tu intento</h3>
+          <p>Escribí un número. El juego te dice si el secreto es mayor o menor.</p>
+        </div>
+        <div class="rule-card">
+          <span class="rule-num">03</span>
+          <h3>8 intentos</h3>
+          <p>Tenés hasta 8 chances. Usá las pistas para acotar el rango con cada turno.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JUEGO -->
+  <section class="game-section" id="juego">
+    <div class="container">
+      <div class="game-card" id="game-card">
+
+        <!-- PANTALLA DE INICIO -->
+        <div id="screen-start" class="screen active">
+          <div class="game-header">
+            <h2>Número Secreto</h2>
+            <p>adivina un número del 1 al 100</p>
+          </div>
+          <div class="game-body">
+            <label for="name-input" class="field-label">Tu nombre</label>
+            <div class="input-row">
+              <input
+                id="name-input"
+                type="text"
+                placeholder="Ej: Valentina"
+                autocomplete="off"
+                maxlength="30"
+              />
+              <button class="btn-action" onclick="startGame()">Jugar</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PANTALLA DE JUEGO -->
+        <div id="screen-game" class="screen">
+          <div class="game-header">
+            <h2 id="greeting">¡Hola, jugador!</h2>
+            <p id="attempts-label">Te quedan <strong id="attempts-count">8</strong> intentos</p>
+          </div>
+          <div class="game-body">
+            <div class="dots-row" id="dots-row"></div>
+            <div class="hint-box" id="hint-box">Ingresá un número entre 1 y 100</div>
+            <div class="input-row">
+              <input
+                id="guess-input"
+                type="number"
+                min="1"
+                max="100"
+                placeholder="?"
+                autocomplete="off"
+              />
+              <button class="btn-action" id="btn-guess" onclick="guess()">Adivinar</button>
+            </div>
+            <button class="btn-reset" onclick="resetGame()">↺ Nuevo juego</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>
+        Hecho con
+        <span aria-label="amor">♥</span>
+        en Python primero, ahora en la web —
+        <a href="https://github.com/" target="_blank" rel="noopener">ver en GitHub</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
