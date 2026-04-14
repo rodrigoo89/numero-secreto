@@ -2,7 +2,7 @@
 
 Un juego de adivinanza donde tenés 8 intentos para descubrir un número secreto entre 1 y 100.
 
-**[→ Ver demo en vivo](https://tu-proyecto.vercel.app)**
+**[→ Ver demo en vivo](https://numero-secreto-murex-phi.vercel.app/)**
 
 ---
 
@@ -54,7 +54,7 @@ python numero_secreto.py
 
 ### Versión Web
 
-Abrí `index.html` directamente en el navegador, o visitá la [demo en Vercel](https://tu-proyecto.vercel.app).
+Abrí `index.html` directamente en el navegador, o visitá la [demo en Vercel](https://numero-secreto-murex-phi.vercel.app/).
 
 ---
 
